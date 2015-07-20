@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{35404744-5455-4672-8AE5-2A2E3568B94C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>evilfoca</RootNamespace>
+    <AssemblyName>Evil FOCA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>EvilFoca.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>evilfoca.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DNSLibrary">
+      <HintPath>..\ThirdPartyAssemblies\DNSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="PacketDotNet">
+      <HintPath>..\ThirdPartyAssemblies\PacketDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpPcap">
+      <HintPath>..\ThirdPartyAssemblies\SharpPcap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attacks\DHCP.cs" />
+    <Compile Include="Attacks\DHCPACKInjection.cs" />
+    <Compile Include="Attacks\DHCPIpv6.cs" />
+    <Compile Include="Attacks\DoSSLAAC.cs" />
+    <Compile Include="Attacks\InvalidMacSpoofIPV4.cs" />
+    <Compile Include="Attacks\SlaacMITM.cs" />
+    <Compile Include="Attacks\WpadIPv4Attack.cs" />
+    <Compile Include="Attacks\WpadIPv6Attack.cs" />
+    <Compile Include="BufferedTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlDHCPv6.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlDHCPv6.Designer.cs">
+      <DependentUpon>ControlDHCPv6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlDosSlaac.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlDosSlaac.Designer.cs">
+      <DependentUpon>ControlDosSlaac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelp\ControlHelp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlHelp\ControlHelp.Designer.cs">
+      <DependentUpon>ControlHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelp\Default\PanelHelpDefault.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlHelp\Default\PanelHelpDefault.Designer.cs">
+      <DependentUpon>PanelHelpDefault.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelp\DNSHijack\PanelDNSHijack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlHelp\DNSHijack\PanelDNSHijack.Designer.cs">
+      <DependentUpon>PanelDNSHijack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelp\DoSIpv4\InvalidMACSpoof\PanelInvalidMac.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlHelp\DoSIpv4\InvalidMACSpoof\PanelInvalidMac.Designer.cs">
+      <DependentUpon>PanelInvalidMac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelp\DoSIPV6\SLAAC\PanelDoSSlaac.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlHelp\DoSIPV6\SLAAC\PanelDoSSlaac.Designer.cs">
+      <DependentUpon>PanelDoSSlaac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv4\ArpSpoofing\PanelArpSpoof.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv4\ArpSpoofing\PanelArpSpoof.Designer.cs">
+      <DependentUpon>PanelArpSpoof.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv4\DHCP ACK Injection\PanelDHCPACKInject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv4\DHCP ACK Injection\UserControl1.Designer.cs">
+      <DependentUpon>PanelDHCPACKInject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv4\Wpad\PanelWpad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv4\Wpad\PanelWpad.Designer.cs">
+      <DependentUpon>PanelWpad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv6\DHCPv6\panelDHCPv6.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv6\DHCPv6\panelDHCPv6.Designer.cs">
+      <DependentUpon>panelDHCPv6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv6\NeighborAdvSpoofing\PanelNeighAdvSpoofing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv6\NeighborAdvSpoofing\PanelNeighAdvSpoofing.Designer.cs">
+      <DependentUpon>PanelNeighAdvSpoofing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv6\SLAAC\PanelSLAAC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv6\SLAAC\PanelSLAAC.Designer.cs">
+      <DependentUpon>PanelSLAAC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv6\WpadV6\PanelWpadV6.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlHelp\MITMIpv6\WpadV6\PanelWpadV6.Designer.cs">
+      <DependentUpon>PanelWpadV6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlInvalidMacIpv4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlInvalidMacIpv4.Designer.cs">
+      <DependentUpon>ControlInvalidMacIpv4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlSlaacMitm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlSlaacMitm.Designer.cs">
+      <DependentUpon>ControlSlaacMitm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IpTextBox\IPTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\OSDetector.cs" />
+    <Compile Include="Core\PasivePortScanner.cs" />
+    <Compile Include="Data\BitReader.cs" />
+    <Compile Include="Data\BitWriter.cs" />
+    <Compile Include="Data\DHCPACKInjectionAttack.cs" />
+    <Compile Include="Data\DhcpIPv6.cs" />
+    <Compile Include="Data\DoSSLAACAttack.cs" />
+    <Compile Include="Data\InvalidMacSpoofAttackIpv4Attack.cs" />
+    <Compile Include="Data\Port.cs" />
+    <Compile Include="DHCPv6\DHCPv6Option.cs" />
+    <Compile Include="DHCPv6\DHCPv6Packet.cs" />
+    <Compile Include="DNS\IPv6Query.cs" />
+    <Compile Include="DNS\IPv6Response.cs" />
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attacks\ARPSpoofing.cs" />
+    <Compile Include="Attacks\NASpoofing.cs" />
+    <Compile Include="ControlDNSHijacking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlDNSHijacking.Designer.cs">
+      <DependentUpon>ControlDNSHijacking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlMitmAttack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlMitmAttack.Designer.cs">
+      <DependentUpon>ControlMitmAttack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListViewEx\ListViewColumnSorter.cs" />
+    <Compile Include="Controls\ListViewEx\ListViewColumnSorterValues.cs" />
+    <Compile Include="Attacks\DNSHijacking.cs" />
+    <Compile Include="Core\NetworkDiscovery.cs" />
+    <Compile Include="Core\PasiveScan.cs" />
+    <Compile Include="Core\Router.cs" />
+    <Compile Include="Data\Attack.cs" />
+    <Compile Include="Data\Data.cs" />
+    <Compile Include="Data\DNSHijackAttack.cs" />
+    <Compile Include="Data\MitmAttack.cs" />
+    <Compile Include="Data\Neighbor.cs" />
+    <Compile Include="Data\Target.cs" />
+    <Compile Include="FormAddNeighbor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddNeighbor.Designer.cs">
+      <DependentUpon>FormAddNeighbor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMessage.Designer.cs">
+      <DependentUpon>FormMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectIPs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectIPs.Designer.cs">
+      <DependentUpon>FormSelectIPs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectSubNet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectSubNet.Designer.cs">
+      <DependentUpon>FormSelectSubNet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInterfaces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInterfaces.Designer.cs">
+      <DependentUpon>FormInterfaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HTTP\HttpPacket.cs" />
+    <Compile Include="HTTP\TcpReconstructorPacket.cs" />
+    <Compile Include="ICMPv6\NeighborAdvertisement.cs" />
+    <Compile Include="ICMPv6\NeighborRouterAdvertisement.cs" />
+    <Compile Include="ICMPv6\NeighborSolicitation.cs" />
+    <Compile Include="Controls\ListViewEx\ListViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LLMNR\DNSAnswer.cs" />
+    <Compile Include="LLMNR\DNSQuery.cs" />
+    <Compile Include="LLMNR\LLMNRAnswer.cs" />
+    <Compile Include="LLMNR\LLMNRPacket.cs" />
+    <Compile Include="Logs\Log.cs" />
+    <Compile Include="PanelLogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelLogs.Designer.cs">
+      <DependentUpon>PanelLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelTarget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelTarget.Designer.cs">
+      <DependentUpon>PanelTarget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelTargets.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelTargets.Designer.cs">
+      <DependentUpon>PanelTargets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Project\Project.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="FormSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSplash.Designer.cs">
+      <DependentUpon>FormSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="ControlDHCPv6.resx">
+      <DependentUpon>ControlDHCPv6.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlDosSlaac.resx">
+      <DependentUpon>ControlDosSlaac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlHelp\ControlHelp.resx">
+      <DependentUpon>ControlHelp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlHelp\Default\PanelHelpDefault.resx">
+      <DependentUpon>PanelHelpDefault.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlHelp\DNSHijack\PanelDNSHijack.resx">
+      <DependentUpon>PanelDNSHijack.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlHelp\DoSIpv4\InvalidMACSpoof\PanelInvalidMac.resx">
+      <DependentUpon>PanelInvalidMac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlHelp\DoSIPV6\SLAAC\PanelDoSSlaac.resx">
+      <DependentUpon>PanelDoSSlaac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlHelp\MITMIpv4\ArpSpoofing\PanelArpSpoof.resx">
+      <DependentUpon>PanelArpSpoof.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlHelp\MITMIpv4\DHCP ACK Injection\UserControl1.resx">
+      <DependentUpon>PanelDHCPACKInject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlHelp\MITMIpv4\Wpad\PanelWpad.resx">
+      <DependentUpon>PanelWpad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlHelp\MITMIpv6\DHCPv6\panelDHCPv6.resx">
+      <DependentUpon>panelDHCPv6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlHelp\MITMIpv6\NeighborAdvSpoofing\PanelNeighAdvSpoofing.resx">
+      <DependentUpon>PanelNeighAdvSpoofing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlHelp\MITMIpv6\SLAAC\PanelSLAAC.resx">
+      <DependentUpon>PanelSLAAC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlHelp\MITMIpv6\WpadV6\PanelWpadV6.resx">
+      <DependentUpon>PanelWpadV6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlInvalidMacIpv4.resx">
+      <DependentUpon>ControlInvalidMacIpv4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlDNSHijacking.resx">
+      <DependentUpon>ControlDNSHijacking.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlMitmAttack.resx">
+      <DependentUpon>ControlMitmAttack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddNeighbor.resx">
+      <DependentUpon>FormAddNeighbor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInterfaces.resx">
+      <DependentUpon>FormInterfaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMessage.resx">
+      <DependentUpon>FormMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectIPs.resx">
+      <DependentUpon>FormSelectIPs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectSubNet.resx">
+      <DependentUpon>FormSelectSubNet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelLogs.resx">
+      <DependentUpon>PanelLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelTarget.resx">
+      <DependentUpon>PanelTarget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelTargets.resx">
+      <DependentUpon>PanelTargets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="FormSplash.resx">
+      <DependentUpon>FormSplash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LICENSE" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\AddNeighbor.png" />
+    <None Include="Resources\Application.png" />
+    <None Include="Resources\Cancel.png" />
+    <None Include="Resources\Configuration.png" />
+    <None Include="Resources\Copy.png" />
+    <None Include="Resources\EvilFoca.png" />
+    <None Include="Resources\Exit.png" />
+    <None Include="Resources\Help.png" />
+    <None Include="Resources\Interface.png" />
+    <None Include="Resources\Ok.png" />
+    <None Include="Resources\Search.png" />
+    <None Include="Resources\SearchStart.png" />
+    <None Include="Resources\SearchStop.png" />
+    <None Include="Resources\Settings.png" />
+    <None Include="Resources\Splash.png" />
+    <None Include="Resources\Start.png" />
+    <None Include="Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AUTHORS" />
+    <Content Include="EvilFoca.ico" />
+    <None Include="Resources\SearchRouters.png" />
+    <None Include="Resources\AddNeighborSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
