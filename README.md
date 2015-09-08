@@ -1,5 +1,11 @@
 ### Evil FOCA
 
+## Requirements
+
+- Windows XP or later.
+- .NET Framework 4 or later.
+- Winpcap library (http://www.winpcap.org)
+
 ## Introduction
 Evil Foca is a tool for security pentesters and auditors whose purpose it is to test security in IPv4 and IPv6 data networks.
 The tool is capable of carrying out various attacks such as:
